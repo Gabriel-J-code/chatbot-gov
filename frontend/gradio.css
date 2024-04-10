@@ -1,31 +1,34 @@
-.body{
+.body, .dark{
     background-color: #fff;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
-.body.dark{
-    background-color: #fff;
+.gap.svelte-vt1mxs{
+    gap: 10px;
 }
-
 .logo{
     margin-left: auto;
     margin-right: auto;
 }
 .subtitle{
-    background-color: white;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
 }
-.subtitle textarea{
-    color: black;
+.subtitle textarea, input{
+    text-align: center;
+    -webkit-text-fill-color: black;
     background-color: white;
 }
 .painel{
     border: white;
 }
-.row-chat{
-    background-color: #ffe425;
+.row-chat, .row-user{
+    background-color: #9f9fa0;
 }
+
 .row-user{
-    background-color: #ffe425;
+    height: auto;
 }
 
 .chatbot label{
@@ -34,11 +37,11 @@
 }
 
 .message.user{
-    background-color: white;
+    background-color: #f5f5f5;
     color: black;
 }
 
-.message.bot{
+.message.bot, .message.pending{
     background-color: #399fe8;
     color: white;
 }
@@ -46,7 +49,7 @@
 .textbox{
     margin-left: auto;
     margin-right: auto;
-    min-width: 62px;
+    min-width: 55px;
 }
 
 .textbox textarea{
@@ -57,18 +60,21 @@
 
 
 .button {
-    height: 23px;   
+    height: auto;   
     margin-left: auto;
     margin-right: auto; 
 }
 
 .submit{
-    border: #0f0a0a;
+    border: #4D4DA1;/*#0f0a0a*/
     margin-top: auto;
     margin-bottom: auto;
 }
 
-footer {visibility: hidden}
+footer {
+    visibility: collapse;
+    margin-top: 0px;
+}
   
 @media screen and (max-width: 768px) {
     .cor {

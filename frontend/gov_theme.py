@@ -53,8 +53,8 @@ theme.set(
 
 title = "ChatGov"
 
-
 logo = "https://paraiba.pb.gov.br/marca-do-governo/GovPBT.png"
 
+descricao = "Serviço de assistencia do Governo da Paraiba"
 
 ##  ?__theme=light
