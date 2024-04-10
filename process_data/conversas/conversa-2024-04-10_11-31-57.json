@@ -1,0 +1,50 @@
+[
+    {
+        "role": "user",
+        "content": "oi"
+    },
+    {
+        "role": "assistant",
+        "content": "Olá, você está falando com o DetranBot, um chatbot especializado em resolver questões relacionadas ao DETRAN da Paraíba. Em que posso ajudar?"
+    },
+    {
+        "role": "user",
+        "content": "Quero renovar minha cnh, como começo?"
+    },
+    {
+        "role": "assistant",
+        "content": "Para renovar sua CNH, vou te explicar os passos necessários. \n\n1. Acesse o “Portal de Serviços” no link https://wsdetran.pb.gov.br/detran-portal-servicos/servlet/easynat-app e crie sua conta.\n2. No seu cadastro, na coluna de serviços, selecione Habilitação, Serviços, S21- EMISSÃO DE BOLETOS DE CNH e emita o guia de RENOVAÇÃO da CNH. Pague e guarde a fatura.\n3. Acesse S18-PEDIDO DE RENOVAÇÃO DE CNH, preencha os dados e emita seu Comprovante de Renovação - RENACH.\n4. Acesse a página de agendamento e marque a \"Captura ONLINE (Foto e Biometria) presencial\".\n5. Agende o exame médico e compareça no local, data e horário agendados.\n6. Após aprovação em todos os exames, acompanhe a confirmação da emissão da CNH. Quando estiver \"Emissão CONFIRMADA\", agende o \"Recibo de Habilitação (CNH Impressa)\".\n\nEsses são os passos iniciais para a renovação da sua CNH. Se precisar de mais detalhes em algum ponto específico, é só perguntar!"
+    },
+    {
+        "role": "user",
+        "content": "Quais são os documentos necessários?"
+    },
+    {
+        "role": "assistant",
+        "content": "Os documentos necessários para a renovação da CNH são:\n\n1. Documento de Identificação (RG ou outro documento oficial com foto);\n2. Cadastro de Pessoa Física (CPF);\n3. Comprovante de Residência (atualizado);\n4. CNH vencida;\n5. Comprovante de pagamento da taxa de renovação;\n6. Comprovante de agendamento dos exames necessários.\n\nCertifique-se de levar esses documentos no dia agendado para a renovação da sua CNH. Caso tenha mais dúvidas ou precise de mais informações, estou à disposição para ajudar."
+    },
+    {
+        "role": "user",
+        "content": "Minha conta de energia serve como comprovante de residencia?"
+    },
+    {
+        "role": "assistant",
+        "content": "Sim, a conta de energia elétrica é um documento válido e comumente aceito como comprovante de residência para diversos fins, incluindo a renovação da CNH. Certifique-se de que a conta esteja atualizada e em seu nome para garantir que seja aceita como comprovante. \n\nSe precisar de mais alguma informação ou tiver outras dúvidas, estou aqui para ajudar!"
+    },
+    {
+        "role": "user",
+        "content": "terei algum problema de dirigir com a cnh vencida?"
+    },
+    {
+        "role": "assistant",
+        "content": "Dirigir com a CNH vencida é considerado uma infração de trânsito grave, de acordo com o Código de Trânsito Brasileiro (CTB). Caso seja pego com a CNH vencida há mais de 30 dias, você estará sujeito a multa e outras penalidades, como a retenção do veículo até a apresentação de um condutor habilitado.\n\nPor isso, é importante renovar a CNH dentro do prazo estabelecido para evitar problemas e garantir que esteja em conformidade com a lei. Se sua CNH estiver vencida, é recomendável que inicie o processo de renovação o quanto antes.\n\nSe precisar de ajuda com o processo de renovação da CNH, estou à disposição para orientar."
+    },
+    {
+        "role": "user",
+        "content": "Preciso fazer algum exame medico?"
+    },
+    {
+        "role": "assistant",
+        "content": "Sim, para a renovação da CNH, é necessário realizar um exame médico. Você deve agendar o exame médico oftalmológico com um profissional credenciado. Durante o exame, serão avaliadas as condições de visão, audição, pressão arterial, entre outros aspectos necessários para a condução segura de veículos.\n\nÉ importante agendar o exame médico dentro do prazo estabelecido para a renovação da CNH e comparecer no local, data e horário agendados com os documentos necessários. Após a aprovação nesse exame, você poderá dar continuidade ao processo de renovação.\n\nSe tiver mais dúvidas ou precisar de mais detalhes, estou aqui para ajudar."
+    }
+]
