@@ -1,9 +1,7 @@
 import gradio as gr  
 from backend.ia import ia
 from dotenv import load_dotenv
-import os
-import json
-from utils.convert_json import converter_aquivo_para_json
+import os, json
 from frontend.gov_theme import logo, theme, title, descricao
 from utils.capturardor_de_conversa import salvar_historico
 
@@ -15,35 +13,35 @@ openai_key = os.getenv('OPENAI_API_KEY')
 
 ia_classifiquer = ia(openai_key,"process_data/catalogo de serviços.txt")
 
-ia_model = ia(openai_key,"process_data/processoRenovacaoCNH.txt")
-
 def user(user_message, history):
     return "", history + [[user_message, ""]]
 
-'''
-def upload_file(files, history):
-    file_paths = [file.name for file in files]
-    history = history + [[file_paths, "O tratamento de aquivos ainda esta em desenvolvimento"]]
-    return history
-'''
+
 def classificar(history):
-    mensagem = history[-1][0]
-    resposta = history[-1][1]
-    par = "user: " + mensagem + ";\n bot: " + resposta
-    clasificacao = ia_classifiquer.responder(par) 
-    for chunk in clasificacao:
-        history[-1][1] = chunk + "\n\n" + resposta
-        yield history
-        
-def respond(history):
-    mensagem = history[-1][0] 
-    resposta = ia_model.responder(mensagem)       
-    for chunk in resposta: 
-        history[-1][1] = chunk                  
-        yield history  
+    for i in range(len(history)):
+        bot = history[i][1]
+        par = "user: " + history[i][0] + ";\n bot: " + history[i][1]
+        clasificacao = ia_classifiquer.responder(par) 
+        for chunk in clasificacao:
+            history[i][1] = chunk + "\n\n" + bot
+            yield history
         
 def salvar(history):
     salvar_historico(history) 
+
+def importar(file):
+    with open(file, 'r', encoding='utf-8') as arquivo_c:
+        conversa_json = json.loads(arquivo_c.read()) 
+    conversa = []
+    par = []
+    for message in conversa_json:
+        par.append(message["content"])
+        if (len(par)==2): 
+            conversa.append(par)
+            par = []
+    return conversa
+        
+    
 
 
 with gr.Blocks(theme= theme,title= title, css="frontend/gradio.css",fill_height= True)as demo:
@@ -55,20 +53,19 @@ with gr.Blocks(theme= theme,title= title, css="frontend/gradio.css",fill_height=
             chatbot = gr.Chatbot(label="Chat", height= "350px", elem_classes= "chatbot")
         with gr.Row(variant="compact",elem_classes= "row-user"):
             with gr.Column(scale=19):
-                msg = gr.Textbox(placeholder="Digite aqui sua duvida", autofocus= True, show_label=False,  elem_classes="textbox", min_width= 62)
-            with gr.Column(scale= 1, min_width=5, elem_classes= "button_column"):
-                submit = gr.Button("➥",elem_classes=["button","submit"],variant='primary')
+                file = gr.File(file_types=['.json'])
+            with gr.Column(scale= 1, min_width=5, elem_classes= "button_column"):                
                 
-                salvar_button = gr.Button("salvar",elem_classes="button")
+                classificar_button = gr.Button("classificar",elem_classes="button")
                 
             gr.on(
-                triggers=[msg.submit, submit.click],
-                fn=user,
-                inputs=[msg, chatbot],
-                outputs=[msg, chatbot],
-            ).then(respond,[chatbot], [chatbot]).then(classificar,[chatbot], [chatbot])             
+                triggers=[file.change],
+                fn=importar,
+                inputs=[file],
+                outputs=[chatbot],
+            )          
             
-            salvar_button.click(fn=salvar, inputs=chatbot)
+            classificar_button.click(fn=classificar, inputs=chatbot, outputs=chatbot)
             
 
-#demo.launch(share=False)
+demo.launch(share=False)

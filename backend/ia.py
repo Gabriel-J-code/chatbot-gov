@@ -1,12 +1,17 @@
 from openai import OpenAI
+import json
+from utils.convert_json import converter_aquivo_para_json
 
 class ia:
-       
-    historico = []
-    
+   
     def __init__(self, openai_key, contexto, model='gpt-3.5-turbo', temperature = 0.75):        
         self.client = OpenAI(api_key= openai_key)
-        self.historico.append( contexto )
+        if (contexto[-4:] == ".txt"):
+            contexto = converter_aquivo_para_json(contexto)
+        elif (contexto[-5:] == ".json"):
+            with open(contexto, 'r', encoding='utf-8') as arquivo_c:
+                contexto = json.loads(arquivo_c.read())       
+        self.historico = [contexto]            
         self.model = model
         self.temperature = temperature
        
