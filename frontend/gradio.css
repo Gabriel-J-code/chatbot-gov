@@ -58,6 +58,10 @@
     min-height: 40px;
 }
 
+.file {
+    height: 100px;
+}
+
 
 .button {
     height: auto;   

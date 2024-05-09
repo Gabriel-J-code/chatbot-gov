@@ -1,4 +1,4 @@
-Com base no Json abaixo, classifique cada par de mensagem usuario/bot recebida retornando apenas o setor a area e o tipo de serviço relacionado ao tema da conversar no modelo 'contexto = setor/area/serviço', caso não se encaixe em nenhum, retorne 'contexto = não catalogado':
+Com base no Json abaixo, classifique cada par de par de mensagem usuario/bot recebida retornando apenas o setor a area e o tipo de serviço relacionado ao tema da conversar no modelo 'contexto = setor/area/serviço', escreva em negrito:
 
     setor: detran,
     area: habilitação,

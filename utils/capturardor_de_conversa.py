@@ -10,9 +10,9 @@ def __converter_historico(history):
     return history_openai_format
 
 
-def salvar_historico(history, nome_arquivo = "process_data\\conversas\\conversa-"):
+def salvar_historico(history, nome_arquivo = "conversa-",pasta = "process_data\\conversas\\"):
     historico_convertido = __converter_historico(history)
     now = datetime.now()
-    formatted_date = now.strftime("%Y-%m-%d_%H-%M-%S")
-    nome_arquivo_saida = nome_arquivo + formatted_date + ".json"
+    formatted_date = now.strftime("%Y-%m-%d_%H-%M-%S")    
+    nome_arquivo_saida = pasta + nome_arquivo + formatted_date + ".json"
     cj.salvar_json(historico_convertido,nome_arquivo_saida)

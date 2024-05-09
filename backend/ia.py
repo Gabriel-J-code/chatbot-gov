@@ -5,7 +5,6 @@ from utils.convert_json import converter_aquivo_para_json
 class ia:
    
     def __init__(self, openai_key, contexto, model='gpt-3.5-turbo', temperature = 0.75):        
-        self.client = OpenAI(api_key= openai_key)
         if (contexto[-4:] == ".txt"):
             contexto = converter_aquivo_para_json(contexto)
         elif (contexto[-5:] == ".json"):
@@ -14,6 +13,13 @@ class ia:
         self.historico = [contexto]            
         self.model = model
         self.temperature = temperature
+        self.key = openai_key        
+        self.client = OpenAI(api_key= openai_key)
+        
+    def reset(self):
+        if (not self.client.is_closed()):
+            self.client.close()
+        self.client = OpenAI(api_key=self.key)
        
                 
     def responder(self, mensagem):

@@ -26,14 +26,6 @@ def upload_file(files, history):
     history = history + [[file_paths, "O tratamento de aquivos ainda esta em desenvolvimento"]]
     return history
 '''
-def classificar(history):
-    mensagem = history[-1][0]
-    resposta = history[-1][1]
-    par = "user: " + mensagem + ";\n bot: " + resposta
-    clasificacao = ia_classifiquer.responder(par) 
-    for chunk in clasificacao:
-        history[-1][1] = chunk + "\n\n" + resposta
-        yield history
         
 def respond(history):
     mensagem = history[-1][0] 
@@ -45,6 +37,8 @@ def respond(history):
 def salvar(history):
     salvar_historico(history) 
 
+def info_salvar_sucesso():
+    gr.Info("Sucesso em salvar")
 
 with gr.Blocks(theme= theme,title= title, css="frontend/gradio.css",fill_height= True)as demo:
     gr.Image(value="frontend/image/gov/barra_cores_gov_pb.png", height= "10px",show_download_button= False, show_label=False, scale= 1)
@@ -66,9 +60,9 @@ with gr.Blocks(theme= theme,title= title, css="frontend/gradio.css",fill_height=
                 fn=user,
                 inputs=[msg, chatbot],
                 outputs=[msg, chatbot],
-            ).then(respond,[chatbot], [chatbot]).then(classificar,[chatbot], [chatbot])             
+            ).then(respond,[chatbot], [chatbot])#.then(classificar,[chatbot], [chatbot])             
             
-            salvar_button.click(fn=salvar, inputs=chatbot)
+            salvar_button.click(fn=salvar, inputs=chatbot).then(info_salvar_sucesso)
             
 
 #demo.launch(share=False)
